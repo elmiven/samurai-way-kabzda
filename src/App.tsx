@@ -14,11 +14,16 @@ function App() {
     <div>
       <PageTitle title={"This is title 1"} />
       <PageTitle title={"This is title 2"} />
-      Article 1
+      <div></div>
+
+      <h2>Article 1</h2>
       <Rating value={5} />
       <Accordion titleValue={"Accordion title1"} collapsed={true} />
       <Accordion titleValue={'Accordion title2'} collapsed={false} />
-      Article 2
+      <div></div>
+
+      <h2>Article 2</h2>
+      <Rating value={0} />
       <Rating value={1} />
       <Rating value={2} />
       <Rating value={3} />
@@ -42,10 +47,10 @@ function PageTitle(props: PageTitlePropsType) {
 
 
 
-function hello() {
-  alert('hello IT_KAMASUTRA')
-}
-hello();
+// function hello() {
+//   alert('hello IT_KAMASUTRA')
+// }
+// hello();
 
 
 
