@@ -1,36 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 /* my import */
-import { Rating } from './components/Rating/Rating';
+import { Rating, RatingValueType} from './components/Rating/Rating';
 import OnOff from './components/OnOff/OnOff';
 import Accordion from './components/Accordion/Accordion';
 import UncontrolledAccordion from './components/Accordion/UncontrolledAccordion';
 import { UncontrolledRating } from './components/Rating/UncontrolledRating';
+import UncontrolledOnOff from './components/OnOff/UncontrolledOnOff';
 
 
 
 function App() {
   console.log("App rendering");
+
+ 
+  let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+  let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+
+  const [toggle, setToggle] = useState(false);
+
   return (
 
     <div className={"App"}>
-      <PageTitle title={"This is title 1"} />
-      <PageTitle title={"This is title 2"} />
+      <PageTitle title={"Uncontrolled"}/>
+     
       <div></div>
 
-      <OnOff />
-      <OnOff />
-      <OnOff />
+      <UncontrolledOnOff /> 
+      <OnOff setToggle={(toggle)=>{setToggle(toggle)}} toggle={toggle}/>
+      
+э
 
+      <UncontrolledAccordion titleValue={"UncontrolledAccordion"} collapsed={true} />
+      <UncontrolledRating />
+      
 
-      <UncontrolledAccordion titleValue={"UncontrolledAccordion title1"} collapsed={true} />
-      <Accordion titleValue={"Accordion title1"} collapsed={false} />
+      <h2>Controlled</h2>
 
-      <h2>Article 2</h2>
-      <UncontrolledRating  />
-      <Rating value={5} />
-
+      <Rating value={ratingValue} ratingCallBack={setRatingValue}/>
+      <Accordion titleValue={"Accordion title1"} collapsed={accordionCollapsed} onClickCallBack={setAccordionCollapsed}/>
 
       {/* <h2>Article 1</h2>
       <Rating value={5} />

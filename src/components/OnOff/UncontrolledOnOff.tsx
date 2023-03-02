@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 type PropsType = {
-    toggle: boolean
-    setToggle: (toggle: boolean) => void
+   
+
 }
 
 
-function OnOff(props: PropsType) {
+function UncontrolledOnOff(props: PropsType) {
 
 console.log("OnOff rendering");
+const [toggle, setToggle] = useState(false);
 
-
-// console.log("toggle:" + toggle);
+console.log("toggle:" + toggle);
 
     const OnStyle = {
         display: "inline-block",
@@ -19,7 +19,7 @@ console.log("OnOff rendering");
         height: "20px",
         border: "1px solid black",
         padding: "2px",
-        backgroundColor: props.toggle ? "green" : "white",
+        backgroundColor: toggle ? "green" : "white",
         
 
     }
@@ -30,7 +30,7 @@ console.log("OnOff rendering");
         border: "1px solid black",
         padding: "2px",
         marginLeft: "2px",
-        backgroundColor: props.toggle ? "white" : "red",
+        backgroundColor: toggle ? "white" : "red",
         
     }
     const IndicatorStyle = {
@@ -40,16 +40,16 @@ console.log("OnOff rendering");
         borderRadius: "5px",
         border: "1px solid black",
         marginLeft: "5px",
-        backgroundColor: props.toggle ? "green" : "red", 
+        backgroundColor: toggle ? "green" : "red", 
     }
     return (
         <div>
-            <div style={OnStyle} onClick={ ()=>{props.setToggle(true)} }>On</div>
-            <div style={OffStyle} onClick={ ()=>{props.setToggle(false) }} >Off</div>
+            <div style={OnStyle} onClick={ ()=>{setToggle(true)} }>On</div>
+            <div style={OffStyle} onClick={ ()=>{setToggle(false) }} >Off</div>
             <div style={IndicatorStyle} ></div>
 
         </div>
     )
 }
 
-export default OnOff
+export default UncontrolledOnOff
