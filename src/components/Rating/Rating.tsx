@@ -3,7 +3,7 @@ import React from 'react';
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
 
-type RatingPropsType = {
+export type RatingPropsType = {
   value: RatingValueType
   ratingCallBack: (value: RatingValueType) => void
 }
@@ -15,12 +15,11 @@ export function Rating(props: RatingPropsType) {
 
   return (
     <div>
-      <Star selected={props.value >= 0} onClickCallBack={props.ratingCallBack} value={0}/>
-      <Star selected={props.value >= 1} onClickCallBack={props.ratingCallBack} value={1}/>
-      <Star selected={props.value >= 2} onClickCallBack={props.ratingCallBack} value={2}/>
-      <Star selected={props.value >= 3} onClickCallBack={props.ratingCallBack} value={3}/>
-      <Star selected={props.value >= 4} onClickCallBack={props.ratingCallBack} value={4}/>
-      <Star selected={props.value >= 5} onClickCallBack={props.ratingCallBack} value={5}/>
+      <Star selected={props.value >= 0} onClickCallBack={props.ratingCallBack} value={1}/>
+      <Star selected={props.value >= 1} onClickCallBack={props.ratingCallBack} value={2}/>
+      <Star selected={props.value >= 2} onClickCallBack={props.ratingCallBack} value={3}/>
+      <Star selected={props.value >= 3} onClickCallBack={props.ratingCallBack} value={4}/>
+      <Star selected={props.value >= 4} onClickCallBack={props.ratingCallBack} value={5}/>
     </div>
   );
 }
@@ -96,7 +95,7 @@ export function Rating(props: RatingPropsType) {
 
 
 
-type StarPropsType = {
+export type StarPropsType = {
   selected: boolean
   onClickCallBack: (value: RatingValueType) => void
   value: RatingValueType

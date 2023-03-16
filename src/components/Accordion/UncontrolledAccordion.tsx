@@ -3,17 +3,13 @@ import { useState } from "react"
 
 type AccordionPropsType = {
   titleValue: string
-  collapsed: boolean
-}
-
-type AccordionCollapsedPropsType = {
-  collapsed: boolean
+  //collapsed: boolean
 }
 
 
 
 function UncontrolledAccordion(props: AccordionPropsType) {
-  console.log("Accordion render");
+  console.log("uncontrolled accordion render");
 
   let [collapsed, setCollapsed] = useState(false);
 

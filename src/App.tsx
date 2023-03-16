@@ -27,19 +27,22 @@ function App() {
      
       <div></div>
 
-      <UncontrolledOnOff /> 
-      <OnOff setToggle={(toggle)=>{setToggle(toggle)}} toggle={toggle}/>
       
-э
-
-      <UncontrolledAccordion titleValue={"UncontrolledAccordion"} collapsed={true} />
-      <UncontrolledRating />
       
+      <UncontrolledOnOff onChange={setToggle}/> 
+      <UncontrolledRating onChange={setRatingValue}/>
+      <UncontrolledAccordion titleValue={"UncontrolledAccordion"} />
 
       <h2>Controlled</h2>
-
+      
+      <OnOff setToggle={(toggle)=>{setToggle(toggle)}} toggle={toggle}/>
       <Rating value={ratingValue} ratingCallBack={setRatingValue}/>
-      <Accordion titleValue={"Accordion title1"} collapsed={accordionCollapsed} onClickCallBack={setAccordionCollapsed}/>
+      <Accordion 
+        titleValue={"Accordion title1"} 
+        collapsed={accordionCollapsed} 
+        // onClickCallBack={setAccordionCollapsed}
+        onChange={() => setAccordionCollapsed(!accordionCollapsed)}
+      />
 
       {/* <h2>Article 1</h2>
       <Rating value={5} />

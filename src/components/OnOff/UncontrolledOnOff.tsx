@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 type PropsType = {
-   
-
+   onChange: (on: boolean) => void
+    defaultOn?: boolean
 }
 
 
 function UncontrolledOnOff(props: PropsType) {
+// console.log("Uncontrolled OnOff rendering");
 
-console.log("OnOff rendering");
-const [toggle, setToggle] = useState(false);
+const [toggle, setToggle] = useState(props.defaultOn ? props.defaultOn : false);
 
-console.log("toggle:" + toggle);
+// console.log("toggle:" + toggle);
 
     const OnStyle = {
         display: "inline-block",
@@ -42,10 +42,23 @@ console.log("toggle:" + toggle);
         marginLeft: "5px",
         backgroundColor: toggle ? "green" : "red", 
     }
+
+
+
+   
+    const onClicked = () => {
+        setToggle(true)
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        setToggle(false)
+        props.onChange(false)
+    }
+
     return (
         <div>
-            <div style={OnStyle} onClick={ ()=>{setToggle(true)} }>On</div>
-            <div style={OffStyle} onClick={ ()=>{setToggle(false) }} >Off</div>
+            <div style={OnStyle} onClick={onClicked }>On</div>
+            <div style={OffStyle} onClick={offClicked} >Off</div>
             <div style={IndicatorStyle} ></div>
 
         </div>
